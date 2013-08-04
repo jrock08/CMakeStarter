@@ -10,4 +10,8 @@ include_directories(BEFORE FALSE ${CMAKE_SOURCE_DIR})
 include_directories(BEFORE FALSE ${CMAKE_BINARY_DIR})
 
 add_subdirectory(third_party)
+# Handles issue where a header files which link to each other in third_party
+# throw file not found errors.
+include_directories(${thirdparty_INCLUDES})
+
 add_subdirectory(codelab)
