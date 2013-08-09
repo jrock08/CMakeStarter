@@ -14,15 +14,11 @@ set(trimesh2_INCLUDES
   ${trimesh2_SOURCE_DIR}/include
   ${trimesh2_SOURCE_DIR}
   )
-set(trimesh2_INCLUDES
-  ${trimesh2_INCLUDES}
-  PARENT_SCOPE
-  )
 
 message("trimesh2_INCLUDES: ${trimesh2_INCLUDES}")
 
 include_directories(${trimesh2_INCLUDES})
 
-add_subdirectory(libsrc)
+add_subdirectory(lib)
 add_subdirectory(gluit)
-add_subdirectory(utilsrc)
+add_subdirectory(util)
