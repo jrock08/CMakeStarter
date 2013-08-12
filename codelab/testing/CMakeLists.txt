@@ -1,5 +1,0 @@
-add_executable (testing_codelab_test testing_codelab.cc)
-
-target_link_libraries(testing_codelab_test gtest gtest_main)
-
-add_test(testing_codelab_test testing_codelab_test)
