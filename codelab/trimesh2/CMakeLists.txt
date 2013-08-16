@@ -1,3 +1,6 @@
-add_executable(codelab_mesh_make mesh_make.cc)
-
-target_link_libraries(codelab_mesh_make trimesh ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES})
+cc_binary(codelab_mesh_make
+  mesh_make.cc
+  third_party/trimesh2/lib:trimesh
+  "${OPENGL_LIBRARIES};${GLUT_LIBRARIES}"
+  )
+#add_dependencies(codelab_mesh_make trimesh2)
