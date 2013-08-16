@@ -1,3 +1,5 @@
+add_subdirectory(gtest-1.6.0)
+#add_simple_lib_dependencies(third_party/gtest:gtest "gtest;gtest_main")
 include(ExternalProject)
 externalproject_add(trimesh2
   SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/trimesh2"
