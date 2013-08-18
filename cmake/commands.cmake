@@ -48,11 +48,20 @@ macro(add_simple_lib_dependencies simple_lib cmake_target)
   add_dependencies("${cmake_lib_dependency}" "${cmake_target}")
 endmacro(add_simple_lib_dependencies)
 
+
+macro(cc_test TEST_NAME SOURCES LIBS OTHERLIBS)
+  cc_binary("${TEST_NAME}" "${SOURCES}" "${LIBS}" "${OTHERLIBS}")
+  set(TESTLIBS "gtest;gtest_main")
+  target_link_libraries("${TEST_NAME}" ${TESTLIBS})
+  add_test("${TEST_NAME}" "${TEST_NAME}")
+endmacro(cc_test)
+
 macro(cc_binary BINARY_NAME SOURCES LIBS OTHERLIBS)
-  #message("BINARY_NAME ${BINARY_NAME}\n"
-  #        "SOURCES ${SOURCES}\n"
-  #        "LIBS ${LIBS}\n"
-  #        "OTHERLIBS ${OTHERLIBS}")
+  LOGINFO("BINARY_NAME ${BINARY_NAME}")
+  LOGINFO("SOURCES ${SOURCES}")
+  LOGINFO("LIBS ${LIBS}")
+  LOGINFO("OTHERLIBS ${OTHERLIBS}")
+
   LOGWARNING("add_executable(${BINARY_NAME} ${SOURCES})")
   add_executable("${BINARY_NAME}" ${SOURCES})
   cc_link("${BINARY_NAME}" "${LIBS}")
@@ -61,12 +70,13 @@ macro(cc_binary BINARY_NAME SOURCES LIBS OTHERLIBS)
 endmacro(cc_binary)
 
 macro(cc_library LIB_NAME SOURCES LIBS OTHERLIBS)
-  message("LIBRARY_NAME ${LIB_NAME}\n"
-          "SOURCES ${SOURCES}\n"
-          "LIBS ${LIBS}\n"
-          "OTHERLIBS ${OTHERLIBS}")
+  LOGINFO("LIBRARY_NAME ${LIB_NAME}")
+  LOGINFO("SOURCES ${SOURCES}")
+  LOGINFO("LIBS ${LIBS}")
+  LOFINFO("OTHERLIBS ${OTHERLIBS}")
+
   add_library(${LIB_NAME} ${SOURCES})
   cc_link(${LIB_NAME} ${LIBS})
   cc_link_self(${LIB_NAME})
-  target_link_library(${cc_library} ${OTHERLIBS})
+  target_link_libraries(${cc_library} ${OTHERLIBS})
 endmacro(cc_library)
