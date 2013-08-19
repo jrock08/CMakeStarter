@@ -36,6 +36,7 @@ function(LOG val m)
   endif(${MY_LOG_LEVEL} LESS ${val})
 endfunction(LOG)
 
-set_log_info()
+set(MY_LOG_LEVEL 100)
+#set_log_info()
 
 message("log level: ${MY_LOG_LEVEL}")
