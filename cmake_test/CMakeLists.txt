@@ -1,3 +1,4 @@
+project(cmake_test)
 cc_library(cc_test_obj_lib
   "cmake_test_obj.cc"
   ""
