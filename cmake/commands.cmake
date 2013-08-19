@@ -78,7 +78,7 @@ macro(cc_test TEST_NAME SOURCES LIBS OTHERLIBS)
   set(TESTLIBS "gtest;gtest_main")
   simple_name_to_full_name(${TEST_NAME} full_binary_target)
   target_link_libraries("${full_binary_target}" ${TESTLIBS})
-  add_test("${TEST_NAME}" "${full_binary_target}")
+  add_test("${TEST_NAME}" "${CMAKE_CURRENT_BUILD_DIR}/${TEST_NAME}")
 endmacro(cc_test)
 
 macro(cc_binary BINARY_NAME SOURCES LIBS OTHERLIBS)
