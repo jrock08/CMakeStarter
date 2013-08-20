@@ -1,7 +1,7 @@
-PROTOBUF_GENERATE_CPP(SIMPLE_SRCS SIMPLE_HDRS simple.proto)
-
+cc_protobuf(simple_proto simple.proto)
+ 
 cc_binary(codelab_protobuf
-  "main.cc;${SIMPLE_SRCS}"
+  "main.cc"
+  "codelab/protobuf:simple_proto"
   ""
-  "${PROTOBUF_LIBRARIES}"
   )

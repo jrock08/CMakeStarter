@@ -112,3 +112,12 @@ macro(cc_library LIB_NAME SOURCES LIBS OTHERLIBS)
   set_target_properties("${full_lib_target}"
     PROPERTIES OUTPUT_NAME "${LIB_NAME}")
 endmacro(cc_library)
+
+macro(cc_protobuf TARGET_NAME PROTO_FILE)
+  PROTOBUF_GENERATE_CPP(PROTO_SOURCES PROTO_HDRS ${PROTO_FILE})
+  simple_name_to_full_name(${TARGET_NAME} full_lib_name)
+  add_library("${full_lib_name}" "${PROTO_SOURCES}")
+  message("${PROTOBUF_LIBRARIES}")
+  target_link_libraries("${full_lib_name}" ${PROTOBUF_LIBRARIES})
+endmacro(cc_protobuf)
+
