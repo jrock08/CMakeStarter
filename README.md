@@ -24,3 +24,9 @@ Code not included, Install as directed:
 https://code.google.com/p/protobuf/downloads/list
 
 See codelab/protobuf
+
+Trimesh2
+-------------
+Nice library for meshes from http://gfx.cs.princeton.edu/proj/trimesh2/
+
+I also maintain a fork for a standalone cmake build at https://github.com/jrock08/Trimesh2
